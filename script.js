@@ -68,7 +68,8 @@ deleteAllBtn.onclick = ()=>{
   todoList.innerHTML = '' //call the showTasks function
 }
 updateTask = (index) =>{
-  listArray[index] = prompt()
+  a = prompt("Hãy nhập công việc cần thay thế")
+  if(a.trim()) listArray[index] = a;
   let newLiTag = ''
   listArray.forEach((element, index) => {
       newLiTag += `<li class='wrap__icon'>${element}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span>
@@ -78,5 +79,5 @@ updateTask = (index) =>{
 
 
   inputBox.value = ""; //once task added leave the input field blank
-showTasks()
+  showTasks()
 }
