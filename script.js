@@ -26,7 +26,8 @@ addBtn.onclick = ()=>{
 }
     let newLiTag = ''
     listArray.forEach((element, index) => {
-        newLiTag += `<li>${element}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`;
+        newLiTag += `<li class='wrap__icon'>${element}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span>
+                                   <span class="icon__update" onclick="updateTask(${index})"><i class="fas fa-pen-square"></i></span></li>`;
     });
     todoList.innerHTML = newLiTag; //adding new li tag inside ul tag
   
@@ -50,7 +51,8 @@ deleteTask = (index)=>{
    //call the showTasks function
    let newLiTag = ''
    listArray.forEach((element, index) => {
-       newLiTag += `<li>${element}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`;
+       newLiTag += `<li class='wrap__icon'>${element}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span>
+       <span class="icon__update" onclick="updateTask(${index})"><i class="fas fa-pen-square"></i></span></li>`;
    });
    todoList.innerHTML = newLiTag; //adding new li tag inside ul tag
  
@@ -60,9 +62,21 @@ showTasks()
 }
 // delete all tasks function
 deleteAllBtn.onclick = ()=>{
-    
   listArray = []; //empty the array
   const pendingTasksNumb = document.querySelector(".pendingTasks");
   pendingTasksNumb.textContent = listArray.length; 
   todoList.innerHTML = '' //call the showTasks function
+}
+updateTask = (index) =>{
+  listArray[index] = prompt()
+  let newLiTag = ''
+  listArray.forEach((element, index) => {
+      newLiTag += `<li class='wrap__icon'>${element}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span>
+      <span class="icon__update" onclick="updateTask(${index})"><i class="fas fa-pen-square"></i></span></li>`;
+  });
+  todoList.innerHTML = newLiTag; //adding new li tag inside ul tag
+
+
+  inputBox.value = ""; //once task added leave the input field blank
+showTasks()
 }
